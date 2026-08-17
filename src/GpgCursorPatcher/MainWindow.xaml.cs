@@ -109,7 +109,7 @@ public partial class MainWindow : Window
             HotspotXBox.Text = hx.ToString();
             HotspotYBox.Text = hy.ToString();
             FileText.Text = _sourceName;
-            MessageText.Text = "Set the in-game cursor to one of the large options — on “default” the game draws the Windows pointer instead.";
+            MessageText.Text = "Set Mouse pointer to “Large” in Play Games — on “Standard” it draws the Windows pointer instead.";
             ShowReplacement();
         }
         catch (Exception ex)
@@ -135,7 +135,7 @@ public partial class MainWindow : Window
         try
         {
             CursorPatcher.Apply(_exePath, _image, x, y, _sourceName);
-            MessageText.Text = $"Done — {_sourceName} is now the cursor, hotspot {x},{y}. Start Play Games and pick one of the large cursor options.";
+            MessageText.Text = $"Done — {_sourceName} is now the cursor, hotspot {x},{y}. Start Play Games and set Mouse pointer to Large.";
             MessageText.Foreground = (Brush)FindResource("Good");
             Refresh();
         }

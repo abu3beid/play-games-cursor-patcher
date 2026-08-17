@@ -25,14 +25,18 @@ public enum InstallStatus { NotFound, NeverPatched, Patched, NeedsReapply }
 /// <summary>
 /// Swaps the cursor Google Play Games draws over a game.
 ///
-/// Play Games ships three cursors -- default (the plain Windows pointer), white
-/// 64x64 and green 64x64 -- with no way to supply your own. The large one is an
+/// Play Games offers two under Mouse pointer -- Standard, which is the plain
+/// Windows pointer, and Large -- with no way to supply your own. Large is an
 /// ordinary Win32 CURSOR resource (id 6, described by GROUP_CURSOR id 1) inside
 /// crosvm.exe, the process that hosts the VM and owns the game window. Replacing
 /// that resource replaces the cursor.
 ///
-/// The in-game setting still has to be on one of the large options; on "default"
-/// the game draws the Windows pointer and never reads this resource.
+/// Its protobuf enum also names CURSOR_TYPE_GREEN_64X64, but no green asset is
+/// shipped and crosvm.exe carries exactly one RT_CURSOR, so id 6 is the only
+/// cursor there is to replace.
+///
+/// The setting still has to be on Large; on Standard the game draws the Windows
+/// pointer and never reads this resource.
 /// </summary>
 public static class CursorPatcher
 {

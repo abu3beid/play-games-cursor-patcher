@@ -8,13 +8,13 @@ Use any cursor you like in Google Play Games on PC.
 
 ## Why
 
-Google Play Games ships three cursors and no way to add your own:
+Google Play Games gives you two cursors under **Mouse pointer** — *Standard*,
+which is the plain Windows pointer, and *Large*, a 64×64 arrow — and no way to
+add your own.
 
-| Setting | What you get |
-|---|---|
-| Default | the plain Windows pointer |
-| White | a 64×64 white arrow |
-| Green | a 64×64 green arrow |
+(Its protobuf enum lists a third, `CURSOR_TYPE_GREEN_64X64`, but no green asset
+is shipped — `crosvm.exe` carries exactly one `RT_CURSOR` resource. The enum
+value is unused, which is why the setting only ever offers two choices.)
 
 That large arrow is an ordinary Win32 `CURSOR` resource — id 6, described by
 `GROUP_CURSOR` id 1 — inside `crosvm.exe`, the process that hosts the Android VM
@@ -37,8 +37,8 @@ androidboot.kiwi_cursor.enable_custom_cursor=true
    `Program Files`).
 3. **Choose image…** — PNG, ICO, CUR or BMP. Anything is scaled to 64×64.
 4. Check the hotspot, then **Apply cursor**.
-5. Start Play Games and set the in-game cursor to one of the **large** options.
-   On *default* the game draws the Windows pointer and never reads this resource.
+5. Start Play Games and set **Mouse pointer** to **Large**. On *Standard* the game
+   draws the Windows pointer and never reads this resource.
 
 ### The hotspot
 

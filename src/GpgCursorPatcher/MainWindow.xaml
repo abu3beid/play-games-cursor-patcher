@@ -99,6 +99,6 @@
 
         <TextBlock Grid.Row="4" x:Name="MessageText" Margin="0,14,0,0" TextWrapping="Wrap"
                    Style="{StaticResource Muted}"
-                   Text="Set the in-game cursor to one of the large options — on “default” the game draws the Windows pointer instead."/>
+                   Text="Set Mouse pointer to “Large” in Play Games — on “Standard” it draws the Windows pointer instead."/>
     </Grid>
 </Window>
