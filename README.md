@@ -29,6 +29,18 @@ line the emulator boots with, in `%LOCALAPPDATA%\Google\Play Games\Logs\AndroidS
 androidboot.kiwi_cursor.enable_custom_cursor=true
 ```
 
+## Download
+
+Grab one from [Releases](../../releases):
+
+| File | Size | Needs |
+|---|---|---|
+| `GpgCursorPatcher.exe` | ~0.5 MB | the [.NET 10 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/10.0) |
+| `GpgCursorPatcher-standalone.exe` | ~133 MB | nothing — the runtime is inside |
+
+Windows SmartScreen will warn on first run either way; the executable is not code
+signed. **More info → Run anyway**, or build it yourself from source below.
+
 ## Use
 
 1. Quit Play Games completely — the tray icon, not just the window. A background
@@ -69,6 +81,14 @@ A single-file executable:
 
 ```
 dotnet publish src/GpgCursorPatcher -c Release
+```
+
+To cut a release, push a tag — `.github/workflows/release.yml` builds both
+executables and opens a draft release with them attached:
+
+```
+git tag v1.0.0
+git push origin v1.0.0
 ```
 
 The smoke test patches a throwaway copy of your installed `crosvm.exe` and reads

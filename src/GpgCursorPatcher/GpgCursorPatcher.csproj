@@ -15,10 +15,17 @@
     <!-- Rewriting crosvm.exe under Program Files needs elevation, and the app is
          useless without it, so ask up front rather than failing at the last step. -->
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>app.ico</ApplicationIcon>
 
     <PublishSingleFile>true</PublishSingleFile>
     <SelfContained>false</SelfContained>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
   </PropertyGroup>
+
+  <ItemGroup>
+    <!-- ApplicationIcon puts it on the exe; this puts it on the window and in
+         the taskbar, which are read from the resource stream at run time. -->
+    <Resource Include="app.ico" />
+  </ItemGroup>
 
 </Project>
